@@ -9,7 +9,6 @@ import org.hibernate.annotations.Generated;
 import java.time.OffsetDateTime;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -111,7 +110,7 @@ public class Task {
      */
 
     public void changeStatus(TaskStatus status) {
-        if (!this.status.canTransactionTo(status)) {
+        if (!this.status.canTransitionTo(status)) {
             throw new StatusTransitionException(this.status, status);
         }
         this.status = status;
