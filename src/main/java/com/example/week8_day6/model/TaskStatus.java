@@ -12,7 +12,7 @@ public enum TaskStatus {
         this.taskStatusTitle = taskStatusTitle;
     }
 
-    public boolean canTransactionTo(TaskStatus next) {
+    public boolean canTransitionTo(TaskStatus next) {
         if ((next == null) || (this == next)) {
             return false;
         }
